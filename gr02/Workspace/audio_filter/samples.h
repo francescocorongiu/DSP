@@ -3,6 +3,22 @@
 
 #define DATA_LEN 	8192
 
+/*
+float:
+x(1)*h(1) = float 
+13 * 0.5  = 6.5
+
+fixed (Q15)
+reso = 2^-15
+ 0.5 / reso = 16384
+
+x(1)*h(1) = 
+13  * 16384  = 212992 
+
+212992 * reso = 6.5
+
+*/
+
 
 //allocate buffer in section audiobuf at address 0x30000 (byte) / 0x18000 (word)
 #pragma DATA_SECTION ( samples , "audiobuf" );

@@ -1,0 +1,2 @@
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\vs_proj\test_DSP\Debug\test_DSP.exe
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\vs_proj\test_DSP\Debug\test_DSP.pdb
