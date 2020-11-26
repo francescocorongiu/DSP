@@ -2,16 +2,7 @@
 #ifndef FIR_COEFFS_H_
 #define FIR_COEFFS_H_
 
-
 #define FIR_LEN 51
-
-000000000x1000
-
-res 2^-15 = 30.52 u
-x0001
-x0010 2x30.52u
-...
-x1000 8x30.52 = 244
 
 // FIR filter coeffs. (Q0.15)
 int h[51] = { 8, -18, -41, -47, -22, 37, 105, 132, 72, -77,

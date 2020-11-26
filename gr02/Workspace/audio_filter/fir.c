@@ -1,3 +1,5 @@
+#include "fi_custom.h"
+
 // FIR filter implemented using linear buffer and floating point arithmetic
 // x: pointer to input buffer
 // h: pointer to filter coefficients
@@ -53,26 +55,86 @@ void fir_circular_f(int *x, float *h, float *r, float *dbuffer,
 		dbuffer[P] = x[i]; //load new sample in buffer, position P
 
 		// initialize accumulator with first tap product
-		acc = dbuffer [P] * h[0];
+		acc = dbuffer[P] * h[0];
 
 		// cycle with circular pointer: from P+1 to end of the buffer
-		for(j = 1, k = P+1; k < nh; j++,k++){
-					acc += dbuffer [k] * h[j];
+		for (j = 1, k = P + 1; k < nh; j++, k++) {
+			acc += dbuffer[k] * h[j];
 		}
 
 		// from the start of the buffer to P-1
-		for (k = 0; k < P; j++,k++){
-			acc += dbuffer [k] * h[j];
+		for (k = 0; k < P; j++, k++) {
+			acc += dbuffer[k] * h[j];
 		}
-		
+
 		// update circular pointer
 		if (--P < 0)
-		P = nh - 1;
-		
+			P = nh - 1;
+
 		// write the output
 		r[i] = acc;
 	}
 	// store last value of circular pointer
-		dbuffer[nh] = P;
+	dbuffer[nh] = P;
 }
 
+void fir_linear_fixed(int *x, float *h, float *r, float *dbuffer,
+		unsigned short nx, unsigned short nh) {
+	int i, j;
+	float acc;
+
+	for (i = 0; i < nx; i++) {
+		// load new sample in delay line
+		dbuffer[0] = x[i];
+		// initialize accumulator with first tap product
+		acc = dbuffer[0] * h[0];
+		// rest of cycle
+		for (j = 1; j < nh; j++) {
+			acc += dbuffer[j] * h[j];
+		}
+		for (j = nh - 2; j >= 0; j--) {
+			// shift delay line
+			dbuffer[j + 1] = dbuffer[j];
+		}
+		// write output
+		r[i] = acc;
+	}
+}
+
+void fir_circular_fixed(int *x, float *h, float *r, float *dbuffer,
+		unsigned short nx, unsigned short nh) {
+	int i, j, k, P;
+	float acc;
+
+// recover initial value of circular pointer
+// this implementation assumes that dbuffer has one extra location (nh + 1 locations)
+// the last location is used to store the value of the circular pointer
+	P = dbuffer[nh];
+
+	for (i = 0; i < nx; i++) {
+		dbuffer[P] = x[i]; //load new sample in buffer, position P
+
+		// initialize accumulator with first tap product
+		acc = dbuffer [P] * h[0];
+
+		// cycle with circular pointer: from P+1 to end of the buffer
+		for(j = 1, k = P+1; k < nh; j++,k++) {
+			acc += dbuffer [k] * h[j];
+		}
+
+		// from the start of the buffer to P-1
+		for (k = 0; k < P; j++,k++) {
+			acc += dbuffer [k] * h[j];
+		}
+
+		// update circular pointer
+		if (--P < 0)
+		P = nh - 1;
+
+		// write the output
+		r[i] = acc;
+	}
+// store last value of circular pointer
+	dbuffer[nh] = P;
+}
+}

@@ -2,16 +2,27 @@
 **** Build of configuration Debug for project audio_filter ****
 
 "C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../fi_custom.c'
+'Invoking: C5500 Compiler'
+"C:/ti/ccsv6/tools/compiler/c5500_4.4.1/bin/cl55" -v5515 --memory_model=large -g --include_path="C:/ti/ccsv6/tools/compiler/c5500_4.4.1/include" --define=c5505 --display_error_number --diag_warning=225 --ptrdiff_size=32 --preproc_with_compile --preproc_dependency="fi_custom.d"  "../fi_custom.c"
+
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'fi_custom.obj' failed
+"../fi_custom.c", line 4: error #32: expression must have arithmetic type
+"../fi_custom.c", line 5: error #31: expression must have integral type
+"../fi_custom.c", line 7: error #31: expression must have integral type
+3 errors detected in the compilation of "../fi_custom.c".
+gmake: *** [fi_custom.obj] Error 1
 'Building file: ../fir.c'
 'Invoking: C5500 Compiler'
 "C:/ti/ccsv6/tools/compiler/c5500_4.4.1/bin/cl55" -v5515 --memory_model=large -g --include_path="C:/ti/ccsv6/tools/compiler/c5500_4.4.1/include" --define=c5505 --display_error_number --diag_warning=225 --ptrdiff_size=32 --preproc_with_compile --preproc_dependency="fir.d"  "../fir.c"
 
 >> Compilation failure
-subdir_rules.mk:7: recipe for target 'fir.obj' failed
-"../fir.c", line 52: error #20: identifier "input_sample" is undefined
-"../fir.c", line 54: error #66: expected a ";"
-"../fir.c", line 69: error #20: identifier "output_sample" is undefined
-3 errors detected in the compilation of "../fir.c".
+subdir_rules.mk:14: recipe for target 'fir.obj' failed
+"..\fi_custom.h", line 4: error #18: expected a ")"
+"..\fi_custom.h", line 6: warning #14-D: extra text after expected end of preprocessing directive
+"../fir.c", line 140: error #171: expected a declaration
+2 errors detected in the compilation of "../fir.c".
 gmake: *** [fir.obj] Error 1
 gmake: Target 'all' not remade because of errors.
 
