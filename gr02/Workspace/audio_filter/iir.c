@@ -1,3 +1,4 @@
+#include "iir.h"
 
 // IIR filter implemented using direct I form biquads floating point arithmetic
 // x: pointer to input buffer
@@ -17,7 +18,7 @@ void iir_biquad1_f(int *x, float *b, float *a, float *r, float *dbuf1, float *db
 	// y[n] = b0*x[n] + b1*x[n-1] + b2*x[n-2] - a1*y[n-1] - a2*y[n-2]
 
 	int i, k;
-	float acc;
+	float acc=0;
 
 	for (i = 0; i < nx; i++)
 	{
@@ -64,8 +65,8 @@ void iir_biquad2_f(int* x, float* b, float* a, float* r, float* dbuf, unsigned s
 	// y[n] = b0*d[n] + b1*d[n-1] + b2*d[n-2]
 
 	int i, k;
-	float acc;
-	float next_data;
+	float acc=0;
+	float next_data=0;
 	for (i = 0; i < nx; i++) {
 
 		dbuf[0] = x[i]; //first input data to buffer(0)
@@ -90,5 +91,82 @@ void iir_biquad2_f(int* x, float* b, float* a, float* r, float* dbuf, unsigned s
 			dbuf[3*(k+1)] = acc;
 		}
 		r[i] = acc;
+	}
+}
+
+void iir_biquad1_fix(int* x, int* b, int* a, int* r, int* dbuf1, int* dbuf2, unsigned short nx, unsigned short nq,int y)
+{
+	// direct form I equation
+// y[n] = b0*x[n] + b1*x[n-1] + b2*x[n-2] - a1*y[n-1] - a2*y[n-2]
+
+	int i, k;
+	long long acc=0;
+
+	for (i = 0; i < nx; i++)
+	{
+		// load input sample
+		dbuf1[0] = (long) x[i] << y;
+		for (k = 0; k < nq; k++)
+		{
+			// compute biquad
+			acc =  (long) dbuf1[k * 3 + 0] * b[k * 3 + 0]; //input buffer
+			acc += (long) dbuf1[k * 3 + 1] * b[k * 3 + 1];
+			acc += (long) dbuf1[k * 3 + 2] * b[k * 3 + 2];
+			acc -= (long) dbuf2[k * 2 + 0] * a[k * 2 + 0];
+			acc -= (long) dbuf2[k * 2 + 1] * a[k * 2 + 1];
+			// shift input delay line
+			dbuf1[k * 3 + 2] = dbuf1[k * 3 + 1];
+			dbuf1[k * 3 + 1] = dbuf1[k * 3 + 0];
+			// shift output delay line
+			dbuf2[k * 2 + 1] = dbuf2[k * 2 + 0];
+			// load new output in delay line
+			dbuf2[k * 2 + 0] = acc >> y;
+			// load new output as input of next biquad
+			dbuf1[k * 3 + 3] = acc >> y;
+		}
+		// write output
+		long int add = 0x1 << y - 1;
+		acc = acc + add;
+		acc = acc >> y;
+		r[i] = (int)acc;
+	}
+}
+
+void iir_biquad2_fix(int* x, int* b, int* a, int* r, int* dbuf, unsigned short nx, unsigned short nq, int y)
+{
+	// direct form II equations
+	// d[n] = x[n] - a1*d[n-1] - a2*d[n-2]
+	// y[n] = b0*d[n] + b1*d[n-1] + b2*d[n-2]
+
+	int i, k;
+	long long acc=0;
+	long long next_data=0;
+	for (i = 0; i < nx; i++) {
+
+		dbuf[0] = (long) x[i] << y; //first input data to buffer(0)
+
+		// cell implementation
+		for (k = 0; k < nq; k++) {
+
+			//output generation
+
+
+			next_data = (long) dbuf[3 * k + 0] - (long)dbuf[3 * k + 1] * a[3 * k + 0] - (long)dbuf[3 * k + 2] * a[3 * k + 1];
+			acc = (long) next_data * b[3 * k + 0];
+			acc += (long) dbuf[3 * k + 1] * b[3 * k + 1];
+			acc += (long) dbuf[3 * k + 2] * b[3 * k + 2];
+
+
+			//buffer shift
+			dbuf[3 * k + 2] = dbuf[3 * k + 1] >> y;
+			dbuf[3 * k + 1] = next_data >> y;
+
+			//output to input
+			dbuf[3 * (k + 1)] = acc >> y;
+		}
+		long int add = 0x1 << y - 1;
+		acc = acc + add;
+		acc = acc >> y;
+		r[i] = (int)acc;
 	}
 }
