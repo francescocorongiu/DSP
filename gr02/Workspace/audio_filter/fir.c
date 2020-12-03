@@ -12,7 +12,7 @@
 void fir_linear_f(int* x, float* h, float* r, float* dbuffer, unsigned short nx,
 	unsigned short nh) {
 	int i, j;
-	int acc;
+	float acc;
 
 	for (i = 0; i < nx; i++) {
 		// load new sample in delay line

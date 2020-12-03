@@ -1,9 +1,8 @@
-﻿  main.c
-C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\samples.h(24,9): warning C4068: l'istruzione pragma 'DATA_SECTION' è sconosciuta
-C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir_coeffs.h(9,78): warning C4305: 'inizializzazione': troncamento da 'double' a 'float'
-C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir_coeffs.h(27,77): warning C4305: 'inizializzazione': troncamento da 'double' a 'float'
-C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir_coeffs.h(17,35): warning C4305: 'inizializzazione': troncamento da 'double' a 'float'
-C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir_coeffs.h(18,46): warning C4305: 'inizializzazione': troncamento da 'double' a 'float'
-C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir_coeffs.h(22,36): warning C4305: 'inizializzazione': troncamento da 'double' a 'float'
-C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir_coeffs.h(23,47): warning C4305: 'inizializzazione': troncamento da 'double' a 'float'
-  test_DSP.vcxproj -> C:\Users\franc\OneDrive\Documents\GitHub\DSP\vs_proj\test_DSP\Debug\test_DSP.exe
+﻿  fir.c
+C:\Users\Francesco\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir.c(19,20): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\Francesco\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir.c(53,17): warning C4244: '=': conversione da 'float' a 'int'. Possibile perdita di dati.
+C:\Users\Francesco\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir.c(56,20): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\Francesco\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir.c(79,17): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\Francesco\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir.c(101,30): warning C4554: '<<': controllare eventuali errori di precedenza tra gli operatori. Per maggiore chiarezza, usare le parentesi
+C:\Users\Francesco\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir.c(140,30): warning C4554: '<<': controllare eventuali errori di precedenza tra gli operatori. Per maggiore chiarezza, usare le parentesi
+  test_DSP.vcxproj -> C:\Users\Francesco\Documents\GitHub\DSP\vs_proj\test_DSP\Debug\test_DSP.exe
