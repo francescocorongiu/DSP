@@ -37,7 +37,7 @@ float output2i[BUFF_LEN];
 
 
 // for computing statistics
-float err1, err2, power;
+float err1, err2, err3, err4, power;
 
 // compute total squared error between sequences s1 and s2 (both integer)
 float compute_error_int(int* s1, int* s2, int len)
@@ -105,6 +105,8 @@ int main(void) {
 
 	err1 = 0;
 	err2 = 0;
+	err3 = 0;
+	err4 = 0;
 	power = 0;
 
 	for (i = 0; i < DATA_LEN / BUFF_LEN; i++)
@@ -125,16 +127,22 @@ int main(void) {
 		iir_biquad2_f(&samples[i * BUFF_LEN], bf, af, output2i, fbuffer_iir2, BUFF_LEN, BIQ_LEN);
 
 
-		// compute error between floating point and fixed point FIR versions
-		//temp err1 += compute_error_intf(output, output1f, BUFF_LEN);
+		// compute error between floating point and fixed point FIR linear versions
+		err1 += compute_error_intf(output1_fix, output1f, BUFF_LEN);
 
 		// compute error between FIR linear and FIR circular
-		//temp err2 += compute_error_f(output1f, output2f, BUFF_LEN);
+		err2 += compute_error_f(output1f, output2f, BUFF_LEN);
+
+		// compute error between IIR form1 and IIR form2
+		err3 += compute_error_f(output1i, output2i, BUFF_LEN);
 
 	}
 
 	err1 /= DATA_LEN;
 	err2 /= DATA_LEN;
+	err3 /= DATA_LEN;
+
+
 
 
 	for (i = 0; i < DATA_LEN; i++)
