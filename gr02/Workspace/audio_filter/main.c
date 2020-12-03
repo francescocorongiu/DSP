@@ -116,10 +116,10 @@ int main(void) {
 		// FIR floating point version
 		//fir_asm(&samples[i * BUFF_LEN], h, output, buffer_asm, BUFF_LEN, FIR_LEN);
 
-		fir_circular_f(&samples[i * BUFF_LEN], hf, output2f, fbufferc_fir, BUFF_LEN, FIR_LEN);
+		//fir_circular_f(&samples[i * BUFF_LEN], hf, output2f, fbufferc_fir, BUFF_LEN, FIR_LEN);
 		fir_linear_f(&samples[i * BUFF_LEN], hf, output1f, fbuffer_fir, BUFF_LEN, FIR_LEN);
 		// FIR fixed point version
-		fir_circular_fixed(&samples[i * BUFF_LEN], h, output2_fix, buffer_fir, BUFF_LEN, FIR_LEN,15);
+		//fir_circular_fixed(&samples[i * BUFF_LEN], h, output2_fix, buffer_fir, BUFF_LEN, FIR_LEN,15);
 		fir_linear_fixed(&samples[i * BUFF_LEN], h, output1_fix, buffer_fir, BUFF_LEN, FIR_LEN,15);
 
 		// IIR floating point
