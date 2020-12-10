@@ -177,9 +177,6 @@ int main(void) {
 		err_iir_f2_float_vs_fixed += compute_error_intf(output_f2_iir_fix, output_f2_iir, BUFF_LEN);
 
 	}
-	float output_f1_iir_fix_val1 = (float)output_f1_iir_fix[0];
-	float output_f1_iir_fix_val2 = (float)output_f1_iir_fix[1];
-	float output_f1_iir_fix_val3 = (float)output_f1_iir_fix[2];
 
 	err_fir_circ_float_vs_fixed /= DATA_LEN;
 	err_fir_lin_float_vs_fixed /= DATA_LEN;

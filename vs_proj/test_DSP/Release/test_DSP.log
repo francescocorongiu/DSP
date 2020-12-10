@@ -1,0 +1,33 @@
+﻿  fir.c
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir.c(19,20): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir.c(53,17): warning C4244: '=': conversione da 'float' a 'int'. Possibile perdita di dati.
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir.c(56,20): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir.c(79,17): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir.c(101,30): warning C4554: '<<': controllare eventuali errori di precedenza tra gli operatori. Per maggiore chiarezza, usare le parentesi
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir.c(140,30): warning C4554: '<<': controllare eventuali errori di precedenza tra gli operatori. Per maggiore chiarezza, usare le parentesi
+  fi_custom.c
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fi_custom.c(3,38): warning C4142: 'mpy_fi': ridefinizione di tipo sicura
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fi_custom.h(4): message : vedere la dichiarazione di 'mpy_fi'
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fi_custom.c(6,29): warning C4554: '<<': controllare eventuali errori di precedenza tra gli operatori. Per maggiore chiarezza, usare le parentesi
+  iir.c
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir.c(26,18): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir.c(72,17): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir.c(123,31): warning C4244: '=': conversione da '__int64' a 'int'. Possibile perdita di dati.
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir.c(125,31): warning C4244: '=': conversione da '__int64' a 'int'. Possibile perdita di dati.
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir.c(128,30): warning C4554: '<<': controllare eventuali errori di precedenza tra gli operatori. Per maggiore chiarezza, usare le parentesi
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir.c(162,36): warning C4244: '=': conversione da '__int64' a 'int'. Possibile perdita di dati.
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir.c(165,32): warning C4244: '=': conversione da '__int64' a 'int'. Possibile perdita di dati.
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir.c(167,30): warning C4554: '<<': controllare eventuali errori di precedenza tra gli operatori. Per maggiore chiarezza, usare le parentesi
+  main.c
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\samples.h(24,9): warning C4068: l'istruzione pragma 'DATA_SECTION' è sconosciuta
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir_coeffs.h(9,78): warning C4305: 'inizializzazione': troncamento da 'double' a 'float'
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\fir_coeffs.h(27,77): warning C4305: 'inizializzazione': troncamento da 'double' a 'float'
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir_coeffs.h(17,35): warning C4305: 'inizializzazione': troncamento da 'double' a 'float'
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir_coeffs.h(18,46): warning C4305: 'inizializzazione': troncamento da 'double' a 'float'
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir_coeffs.h(22,36): warning C4305: 'inizializzazione': troncamento da 'double' a 'float'
+C:\Users\franc\OneDrive\Documents\GitHub\DSP\gr02\Workspace\audio_filter\iir_coeffs.h(23,47): warning C4305: 'inizializzazione': troncamento da 'double' a 'float'
+  Generazione codice in corso...
+  Previous IPDB not found, fall back to full compilation.
+  Generazione codice terminata
+  All 11 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  test_DSP.vcxproj -> C:\Users\franc\OneDrive\Documents\GitHub\DSP\vs_proj\test_DSP\Release\test_DSP.exe
