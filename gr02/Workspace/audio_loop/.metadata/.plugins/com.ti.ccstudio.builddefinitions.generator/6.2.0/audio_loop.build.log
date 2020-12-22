@@ -1,0 +1,21 @@
+
+**** Build of configuration Debug for project audio_loop ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main_bypass1.c'
+'Invoking: C5500 Compiler'
+"C:/ti/ccsv6/tools/compiler/c5500_4.4.1/bin/cl55" -v5515 --memory_model=huge -g --include_path="C:/ti/ccsv6/tools/compiler/c5500_4.4.1/include" --define=c5505 --define="_DEBUG" --define="C55X" --display_error_number --diag_warning=225 --ptrdiff_size=32 --algebraic --no_mac_expand --asm_source=algebraic --preproc_with_compile --preproc_dependency="main_bypass1.d"  "../main_bypass1.c"
+'Finished building: ../main_bypass1.c'
+' '
+'Building target: audio_loop.out'
+'Invoking: C5500 Linker'
+"C:/ti/ccsv6/tools/compiler/c5500_4.4.1/bin/cl55" -v5515 --memory_model=huge -g --define=c5505 --define="_DEBUG" --define="C55X" --display_error_number --diag_warning=225 --ptrdiff_size=32 --algebraic --no_mac_expand --asm_source=algebraic -z -m"audio_loop.map" --stack_size=1000 --heap_size=0x400 -i"C:/ti/ccsv6/tools/compiler/c5500_4.4.1/lib" -i"C:/ti/ccsv6/tools/compiler/c5500_4.4.1/include" --reread_libs --display_error_number --warn_sections --xml_link_info="audio_loop_linkInfo.xml" --entry_point=reset_isr --rom_model --sys_stacksize=1000 -o "audio_loop.out" "./aic_test_i2c.obj" "./dma_bypass1.obj" "./fir.obj" "./i2s_bypass1.obj" "./i2s_register.obj" "./main_bypass1.obj" "./ref_data_bypass1.obj" "./rtc_bypass1.obj" "./vector.obj" "../C5505.cmd"  -llibc.a 
+<Linking>
+warning #10247-D: creating output section "audiobuf" without a SECTIONS
+   specification
+warning #10063-D: entry-point symbol other than "_c_int00" specified:
+   "reset_isr"
+'Finished building target: audio_loop.out'
+' '
+
+**** Build Finished ****
