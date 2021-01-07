@@ -1,0 +1,223 @@
+******************************************************************************
+              TMS320C55x Linker PC v4.4.1                      
+******************************************************************************
+>> Linked Thu Dec 05 12:39:09 2019
+
+OUTPUT FILE NAME:   <audio_shorten.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00010522
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+  MMR                   00000000   000000c0  00000000  000000c0  RW  
+  DARAM                 000000c0   0000ff40  00005b7c  0000a3c4  RW  
+  SARAM1                00010000   00020000  00000585  0001fa7b  RW  
+  SARAM2                00030000   00020000  00004000  0001c000  RW  
+  EMIF_CS0              00050000   007b0000  00000000  007b0000  RW  
+  EMIF_CS2              00800000   00400000  00000000  00400000  RW  
+  EMIF_CS3              00c00000   00200000  00000000  00200000  RW  
+  EMIF_CS4              00e00000   00100000  00000000  00100000  RW  
+  EMIF_CS5              00f00000   000e0000  00000000  000e0000  RW  
+  SAROM_0               00fe0000   00008000  00000000  00008000  R  X
+  SAROM_1               00fe8000   00008000  00000000  00008000  R  X
+  SAROM_2               00ff0000   00008000  00000000  00008000  R  X
+  SAROM_3               00ff8000   00008000  00000000  00008000  R  X
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.data        0   [ 000000c0 ]  00000060          *   00000000   UNINITIALIZED
+
+.cinit       0   [ 000000c0 ]  00000060          *   00002020   
+                 [ 000000c0 ]  00000060          *   0000200b   main.obj (.cinit)
+                 [ 000040d6 ]  0000206b          *   0000000a   rts55x.lib : _lock.obj (.cinit)
+                 [ 000040ea ]  00002075          *   0000000a              : exit.obj (.cinit)
+                 [ 000040fe ]  0000207f          *   00000001   --HOLE-- [fill = 0]
+
+.bss         0   [ 00004100 ]  00002080          *   00000b1e   UNINITIALIZED
+                 [ 00004100 ]  00002080          *   00000b16   main.obj (.bss)
+                 [ 0000572c ]  00002b96          *   00000004   rts55x.lib : _lock.obj (.bss)
+                 [ 00005734 ]  00002b9a          *   00000004              : exit.obj (.bss)
+
+.stack       0   [ 0000573c ]  00002b9e          *   00000100   UNINITIALIZED
+                 [ 0000573c ]  00002b9e          *   00000100   --HOLE--
+
+.sysstack 
+*            0   [ 0000593c ]  00002c9e          *   00000100   UNINITIALIZED
+                 [ 0000593c ]  00002c9e          *   00000100   --HOLE--
+
+vectors      0     00005b40  [ 00002da0 ] 00000100          *   NOLOAD SECTION
+                   00005b40  [ 00002da0 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+.text        0     00010000  [ 00008000 ] 00000585          *   
+                   00010000  [ 00008000 ] 00000180          *   rice_codec.obj (.text)
+                   00010180  [ 000080c0 ] 0000011f          *   prediction.obj (.text)
+                   0001029f  [ 0000814f+] 0000010c          *   main.obj (.text)
+                   000103ab  [ 000081d5+] 000000a1          *   rts55x.lib : divul.obj (.text)
+                   0001044c  [ 00008226 ] 0000004d          *              : autoinit.obj (.text)
+                   00010499  [ 0000824c+] 0000004b          *              : args_main.obj (.text)
+                   000104e4  [ 00008272 ] 0000003e          *              : exit.obj (.text)
+                   00010522  [ 00008291 ] 00000034          *              : boot.obj (.text)
+                   00010556  [ 000082ab ] 00000013          *              : lmpy.obj (.text)
+                   00010569  [ 000082b4+] 00000012          *              : _lock.obj (.text)
+                   0001057b  [ 000082bd+] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   00010582  [ 000082c1 ] 00000002          *              : vectors.obj (.text)
+                   00010584  [ 000082c2 ] 00000001          *   --HOLE-- [fill = 20]
+
+audiobuf     0   [ 00030000 ]  00018000          *   00002000   UNINITIALIZED
+                 [ 00030000 ]  00018000          *   00002000   main.obj (audiobuf)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev3
+            00002080    .bss
+            00000060    .data
+00010000                .text
+0001057c                C$$EXIT
+00010556                I$$LMPY
+00005b40                _Reset
+            00002c9e    __STACK_END
+00000200                __STACK_SIZE
+00000200                __SYSSTACK_SIZE
+00000001                __TI_args_main
+ffffffff                ___binit__
+            00002080    ___bss__
+ffffffff                ___c_args__
+            00000060    ___cinit__
+            00000060    ___data__
+            00000060    ___edata__
+            00002b9e    ___end__
+00010585                ___etext__
+ffffffff                ___pinit__
+00010000                ___text__
+00010499                __args_main
+            00002b9a    __cleanup_ptr
+000103ab                __divul
+            00002b9c    __dtors_ptr
+            00002b96    __lock
+00010556                __mpyli
+00010579                __nop
+00010571                __register_lock
+00010569                __register_unlock
+            00002b9e    __stack
+            00002c9e    __sysstack
+            00002b98    __unlock
+0001057b                _abort
+0001044c                _auto_init
+            0000208b    _buffer_dec
+            00002085    _buffer_enc
+00010522                _c_int00
+            00002391    _code
+0001029f                _compute_error
+            00002191    _error_dec
+            00002091    _error_enc
+000104e4                _exit
+000102c4                _main
+            00002b92    _num_bits
+            00002291    _output
+            00002080    _p_filt
+0001029d                _prediction_error
+0001029b                _prediction_error_P1
+00010299                _prediction_error_P2
+            00002b94    _rec_err
+000101d5                _reconstruct
+000101bf                _reconstruct_P1
+00010180                _reconstruct_P2
+000100b5                _rice_decoder
+00010043                _rice_encoder
+00010000                _rice_parameter
+            00018000    _samples
+ffffffff                binit
+            00000060    cinit
+            00000060    edata
+            00002b9e    end
+00010585                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev3
+00000001                __TI_args_main
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+            00000060    .data
+            00000060    ___cinit__
+            00000060    ___data__
+            00000060    ___edata__
+            00000060    cinit
+            00000060    edata
+00000200                __STACK_SIZE
+00000200                __SYSSTACK_SIZE
+            00002080    .bss
+            00002080    ___bss__
+            00002080    _p_filt
+            00002085    _buffer_enc
+            0000208b    _buffer_dec
+            00002091    _error_enc
+            00002191    _error_dec
+            00002291    _output
+            00002391    _code
+            00002b92    _num_bits
+            00002b94    _rec_err
+            00002b96    __lock
+            00002b98    __unlock
+            00002b9a    __cleanup_ptr
+            00002b9c    __dtors_ptr
+            00002b9e    ___end__
+            00002b9e    __stack
+            00002b9e    end
+            00002c9e    __STACK_END
+            00002c9e    __sysstack
+00005b40                _Reset
+00010000                .text
+00010000                ___text__
+00010000                _rice_parameter
+00010043                _rice_encoder
+000100b5                _rice_decoder
+00010180                _reconstruct_P2
+000101bf                _reconstruct_P1
+000101d5                _reconstruct
+00010299                _prediction_error_P2
+0001029b                _prediction_error_P1
+0001029d                _prediction_error
+0001029f                _compute_error
+000102c4                _main
+000103ab                __divul
+0001044c                _auto_init
+00010499                __args_main
+000104e4                _exit
+00010522                _c_int00
+00010556                I$$LMPY
+00010556                __mpyli
+00010569                __register_unlock
+00010571                __register_lock
+00010579                __nop
+0001057b                _abort
+0001057c                C$$EXIT
+00010585                ___etext__
+00010585                etext
+            00018000    _samples
+ffffffff                ___binit__
+ffffffff                ___c_args__
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                pinit
+
+[66 symbols]
