@@ -1,10 +1,10 @@
 ******************************************************************************
               TMS320C55x Linker PC v4.4.1                      
 ******************************************************************************
->> Linked Thu Jan 07 15:51:22 2021
+>> Linked Thu Jan 14 16:20:13 2021
 
 OUTPUT FILE NAME:   <audio_shorten.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 00010bf5
+ENTRY POINT SYMBOL: "_c_int00"  address: 00010da0
 
 
 MEMORY CONFIGURATION
@@ -13,8 +13,8 @@ MEMORY CONFIGURATION
                         (bytes)   (bytes)    (bytes)   (bytes)
 ----------------------  --------  ---------  --------  --------  ----  --------
   MMR                   00000000   000000c0  00000000  000000c0  RW  
-  DARAM                 000000c0   0000ff40  00005b9c  0000a3a4  RW  
-  SARAM1                00010000   00020000  00000c8e  0001f372  RW  
+  DARAM                 000000c0   0000ff40  00005b98  0000a3a8  RW  
+  SARAM1                00010000   00020000  00000e39  0001f1c7  RW  
   SARAM2                00030000   00020000  00004000  0001c000  RW  
   EMIF_CS0              00050000   007b0000  00000000  007b0000  RW  
   EMIF_CS2              00800000   00400000  00000000  00400000  RW  
@@ -53,34 +53,34 @@ section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
 *            0   [ 00005954 ]  00002caa          *   00000100   UNINITIALIZED
                  [ 00005954 ]  00002caa          *   00000100   --HOLE--
 
-.const       0   [ 00005b54 ]  00002daa          *   00000004   
-                 [ 00005b54 ]  00002daa          *   00000002   prediction.obj (.const:_$P$T0$1)
-                 [ 00005b58 ]  00002dac          *   00000002   rts55x.lib : fltlid.obj (.const)
+.const       0   [ 00005b54 ]  00002daa          *   00000002   
+                 [ 00005b54 ]  00002daa          *   00000002   rts55x.lib : fltlid.obj (.const)
 
-vectors      0     00005b60  [ 00002db0 ] 00000100          *   NOLOAD SECTION
-                   00005b60  [ 00002db0 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+vectors      0     00005b58  [ 00002dac ] 00000100          *   NOLOAD SECTION
+                   00005b58  [ 00002dac ] 00000100          *   rts55x.lib : vectors.obj (vectors)
 
-.text        0     00010000  [ 00008000 ] 00000c8e          *   
-                   00010000  [ 00008000 ] 0000033b          *   prediction.obj (.text)
-                   0001033b  [ 0000819d+] 0000025a          *   rts55x.lib : addd.obj (.text)
-                   00010595  [ 000082ca+] 00000180          *   rice_codec.obj (.text)
-                   00010715  [ 0000838a+] 0000014c          *   rts55x.lib : mpyd.obj (.text)
-                   00010861  [ 00008430+] 000000d1          *   main.obj (.text)
-                   00010932  [ 00008499 ] 000000a1          *   rts55x.lib : divul.obj (.text)
-                   000109d3  [ 000084e9+] 00000076          *              : frcmpyd.obj (.text)
-                   00010a49  [ 00008524+] 0000006f          *              : fixdli.obj (.text)
-                   00010ab8  [ 0000855c ] 00000067          *              : fltlid.obj (.text)
-                   00010b1f  [ 0000858f+] 0000004d          *              : autoinit.obj (.text)
-                   00010b6c  [ 000085b6 ] 0000004b          *              : args_main.obj (.text)
-                   00010bb7  [ 000085db+] 0000003e          *              : exit.obj (.text)
-                   00010bf5  [ 000085fa+] 00000034          *              : boot.obj (.text)
-                   00010c29  [ 00008614+] 0000002a          *              : fixdi.obj (.text)
-                   00010c53  [ 00008629+] 00000013          *              : lmpy.obj (.text)
-                   00010c66  [ 00008633 ] 00000012          *              : _lock.obj (.text)
-                   00010c78  [ 0000863c ] 0000000c          *              : fltid.obj (.text)
-                   00010c84  [ 00008642 ] 00000007          *              : exit.obj (.text:CIO_breakpoint)
-                   00010c8b  [ 00008645+] 00000002          *              : vectors.obj (.text)
-                   00010c8d  [ 00008646 ] 00000001          *   --HOLE-- [fill = 20]
+.text        0     00010000  [ 00008000 ] 00000e39          *   
+                   00010000  [ 00008000 ] 00000409          *   prediction.obj (.text)
+                   00010409  [ 00008204+] 0000025a          *   rts55x.lib : addd.obj (.text)
+                   00010663  [ 00008331+] 000001cb          *   rice_codec.obj (.text)
+                   0001082e  [ 00008417 ] 0000014c          *   rts55x.lib : mpyd.obj (.text)
+                   0001097a  [ 000084bd ] 00000127          *   main.obj (.text)
+                   00010aa1  [ 00008550+] 000000a1          *   rts55x.lib : divul.obj (.text)
+                   00010b42  [ 000085a1 ] 00000076          *              : frcmpyd.obj (.text)
+                   00010bb8  [ 000085dc ] 0000006f          *              : fixdli.obj (.text)
+                   00010c27  [ 00008613+] 00000067          *              : fltlid.obj (.text)
+                   00010c8e  [ 00008647 ] 0000004d          *              : autoinit.obj (.text)
+                   00010cdb  [ 0000866d+] 0000004b          *              : args_main.obj (.text)
+                   00010d26  [ 00008693 ] 0000003e          *              : exit.obj (.text)
+                   00010d64  [ 000086b2 ] 0000003c          *              : idiv.obj (.text)
+                   00010da0  [ 000086d0 ] 00000034          *              : boot.obj (.text)
+                   00010dd4  [ 000086ea ] 0000002a          *              : fixdi.obj (.text)
+                   00010dfe  [ 000086ff ] 00000013          *              : lmpy.obj (.text)
+                   00010e11  [ 00008708+] 00000012          *              : _lock.obj (.text)
+                   00010e23  [ 00008711+] 0000000c          *              : fltid.obj (.text)
+                   00010e2f  [ 00008717+] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   00010e36  [ 0000871b ] 00000002          *              : vectors.obj (.text)
+                   00010e38  [ 0000871c ] 00000001          *   --HOLE-- [fill = 20]
 
 audiobuf     0   [ 00030000 ]  00018000          *   00002000   UNINITIALIZED
                  [ 00030000 ]  00018000          *   00002000   main.obj (audiobuf)
@@ -97,9 +97,11 @@ byte addr   word addr   name
             0000208c    .bss
             00000060    .data
 00010000                .text
-00010c85                C$$EXIT
-00010c53                I$$LMPY
-00005b60                _Reset
+00010e30                C$$EXIT
+00010d64                I$$DIV
+00010dfe                I$$LMPY
+00010d83                I$$MOD
+00005b58                _Reset
             00002caa    __STACK_END
 00000200                __STACK_SIZE
 00000200                __SYSSTACK_SIZE
@@ -111,60 +113,62 @@ ffffffff                ___c_args__
             00000060    ___data__
             00000060    ___edata__
             00002baa    ___end__
-00010c8e                ___etext__
+00010e39                ___etext__
 ffffffff                ___pinit__
 00010000                ___text__
-0001033b                __addd
-00010b6c                __args_main
+00010409                __addd
+00010cdb                __args_main
             00002ba6    __cleanup_ptr
-00010932                __divul
+00010d64                __divi
+00010aa1                __divul
             00002ba8    __dtors_ptr
-00010c29                __fixdi
-00010a49                __fixdli
-00010c78                __fltid
-00010ab8                __fltlid
-000109d3                __frcmpyd
+00010dd4                __fixdi
+00010bb8                __fixdli
+00010e23                __fltid
+00010c27                __fltlid
+00010b42                __frcmpyd
             00002ba2    __lock
-00010715                __mpyd
-00010c53                __mpyli
-00010c76                __nop
-00010c6e                __register_lock
-00010c66                __register_unlock
+0001082e                __mpyd
+00010dfe                __mpyli
+00010e21                __nop
+00010e19                __register_lock
+00010e11                __register_unlock
+00010d83                __remi
             00002baa    __stack
             00002caa    __sysstack
             00002ba4    __unlock
-00010c84                _abort
-00010b1f                _auto_init
+00010e2f                _abort
+00010c8e                _auto_init
             00002097    _buffer_dec
             00002091    _buffer_enc
-00010bf5                _c_int00
+00010da0                _c_int00
             0000239d    _code
-00010861                _compute_error
+0001097a                _compute_error
             0000219d    _error_dec
             0000209d    _error_enc
-00010bb7                _exit
-0001021b                _fir_circular_f
-00010119                _fir_circular_fixed
-00010886                _main
+00010d26                _exit
+000102e9                _fir_circular_f
+00010234                _fir_circular_fixed
+0001099f                _main
             00002b9e    _num_bits
             0000229d    _output
             0000208c    _p_filt
-00010207                _prediction_error
-000101ef                _prediction_error_P1
-000101ce                _prediction_error_P2
+00010170                _prediction_error
+00010158                _prediction_error_P1
+00010119                _prediction_error_P2
             00002ba0    _rec_err
 00010055                _reconstruct
 0001003f                _reconstruct_P1
 00010000                _reconstruct_P2
-0001064a                _rice_decoder
-000105d8                _rice_encoder
-00010595                _rice_parameter
+00010763                _rice_decoder
+000106a6                _rice_encoder
+00010663                _rice_parameter
             00018000    _samples
 ffffffff                binit
             00000060    cinit
             00000060    edata
             00002baa    end
-00010c8e                etext
+00010e39                etext
 ffffffff                pinit
 
 
@@ -205,43 +209,47 @@ byte addr   word addr   name
             00002baa    end
             00002caa    __STACK_END
             00002caa    __sysstack
-00005b60                _Reset
+00005b58                _Reset
 00010000                .text
 00010000                ___text__
 00010000                _reconstruct_P2
 0001003f                _reconstruct_P1
 00010055                _reconstruct
-00010119                _fir_circular_fixed
-000101ce                _prediction_error_P2
-000101ef                _prediction_error_P1
-00010207                _prediction_error
-0001021b                _fir_circular_f
-0001033b                __addd
-00010595                _rice_parameter
-000105d8                _rice_encoder
-0001064a                _rice_decoder
-00010715                __mpyd
-00010861                _compute_error
-00010886                _main
-00010932                __divul
-000109d3                __frcmpyd
-00010a49                __fixdli
-00010ab8                __fltlid
-00010b1f                _auto_init
-00010b6c                __args_main
-00010bb7                _exit
-00010bf5                _c_int00
-00010c29                __fixdi
-00010c53                I$$LMPY
-00010c53                __mpyli
-00010c66                __register_unlock
-00010c6e                __register_lock
-00010c76                __nop
-00010c78                __fltid
-00010c84                _abort
-00010c85                C$$EXIT
-00010c8e                ___etext__
-00010c8e                etext
+00010119                _prediction_error_P2
+00010158                _prediction_error_P1
+00010170                _prediction_error
+00010234                _fir_circular_fixed
+000102e9                _fir_circular_f
+00010409                __addd
+00010663                _rice_parameter
+000106a6                _rice_encoder
+00010763                _rice_decoder
+0001082e                __mpyd
+0001097a                _compute_error
+0001099f                _main
+00010aa1                __divul
+00010b42                __frcmpyd
+00010bb8                __fixdli
+00010c27                __fltlid
+00010c8e                _auto_init
+00010cdb                __args_main
+00010d26                _exit
+00010d64                I$$DIV
+00010d64                __divi
+00010d83                I$$MOD
+00010d83                __remi
+00010da0                _c_int00
+00010dd4                __fixdi
+00010dfe                I$$LMPY
+00010dfe                __mpyli
+00010e11                __register_unlock
+00010e19                __register_lock
+00010e21                __nop
+00010e23                __fltid
+00010e2f                _abort
+00010e30                C$$EXIT
+00010e39                ___etext__
+00010e39                etext
             00018000    _samples
 ffffffff                ___binit__
 ffffffff                ___c_args__
@@ -249,4 +257,4 @@ ffffffff                ___pinit__
 ffffffff                binit
 ffffffff                pinit
 
-[75 symbols]
+[79 symbols]

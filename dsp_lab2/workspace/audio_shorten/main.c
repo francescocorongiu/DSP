@@ -4,7 +4,7 @@
 #include "samples2.h"
 
 #define BUFF_LEN	256
-#define K_RICE		7
+#define K_RICE		2
 
 // allocate buffers
 int buffer_enc[P_LEN+1];
@@ -48,6 +48,7 @@ int main(void) {
 	for (i = 0; i < BUFF_LEN*8; i++)
 	{
 		code[i] = 0;
+		error_enc[i]=0;
 	}
 	num_bits = 0;
 	rec_err = 0;
@@ -62,10 +63,10 @@ int main(void) {
 		// comment out the rice encoder / decoder functions here below and see if rec_err = 0
 		// then you can proceed to write the rice encoder
 
-		prediction_error_P1(&samples[i*BUFF_LEN], buffer_enc, error_dec, BUFF_LEN);
-		//num_bits += rice_encoder(error_enc, code, BUFF_LEN, K_RICE);
-		//rice_decoder(code, error_dec, BUFF_LEN, K_RICE);
-		reconstruct_P1(error_dec, buffer_dec, output, BUFF_LEN);
+		prediction_error(&samples[i*BUFF_LEN], p_filt, buffer_enc, error_enc, BUFF_LEN, P_LEN);
+		num_bits += rice_encoder(error_enc, code, BUFF_LEN, K_RICE);
+		rice_decoder(code, error_dec, BUFF_LEN, K_RICE);
+		reconstruct(error_dec, p_filt, buffer_dec, output, BUFF_LEN,P_LEN);
 
 		// verify reconstruction error (should be zero for lossless compression)
 		rec_err += compute_error(&samples[i*BUFF_LEN], output, BUFF_LEN);

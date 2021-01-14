@@ -2,10 +2,10 @@
 **** Build of configuration Debug for project audio_shorten ****
 
 "C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
-'Building file: ../prediction.c'
+'Building file: ../rice_codec.c'
 'Invoking: C5500 Compiler'
-"C:/ti/ccsv6/tools/compiler/c5500_4.4.1/bin/cl55" -v5515 --memory_model=large -O3 -g --include_path="C:/ti/ccsv6/tools/compiler/c5500_4.4.1/include" --define=c5505 --display_error_number --diag_warning=225 --ptrdiff_size=32 --preproc_with_compile --preproc_dependency="prediction.d"  "../prediction.c"
-'Finished building: ../prediction.c'
+"C:/ti/ccsv6/tools/compiler/c5500_4.4.1/bin/cl55" -v5515 --memory_model=large -O3 -g --include_path="C:/ti/ccsv6/tools/compiler/c5500_4.4.1/include" --define=c5505 --display_error_number --diag_warning=225 --ptrdiff_size=32 --preproc_with_compile --preproc_dependency="rice_codec.d"  "../rice_codec.c"
+'Finished building: ../rice_codec.c'
 ' '
 'Building target: audio_shorten.out'
 'Invoking: C5500 Linker'
